@@ -24,4 +24,18 @@ git clone https://github.com/your-username/purrvana-fe.git
 cd purrvana-fe
 npm install
 npm run dev
+```
 
+Ensure the backend is also running on localhost:3000 or update your API endpoints accordingly.
+
+📁 Folder Structure Highlights
+
+/components: React components (Session, Dashboard, etc.)
+
+/styles: CSS files
+
+/assets: Images of the real cats
+
+🔗 API
+
+The frontend interacts with the Purrvana backend located [here](https://github.com/nvnatasha/purrvana-be).
