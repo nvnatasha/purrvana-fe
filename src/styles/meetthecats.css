@@ -1,0 +1,32 @@
+.meet-cats-container {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .cat-bio {
+    margin-bottom: 3rem;
+  }
+  
+  .cat-photo {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1rem;
+  }
+  
+  .back-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #776bcc;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .back-btn:hover {
+    background-color: #5b55a3;
+  }
+  

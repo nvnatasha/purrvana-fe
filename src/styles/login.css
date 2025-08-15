@@ -1,0 +1,150 @@
+
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;              /* Ensure full width */
+  background-color: #2a2a2a; /* Outer dark background */
+}
+
+.login-panel {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* add this */
+  width: 100%;
+  background-color: #ffc897;
+  padding: 3rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  border-radius: 16px;
+}
+
+
+
+.landing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  margin-bottom: 3rem;
+}
+
+.logo-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff0f6;
+  padding: 0.5rem;
+}
+
+.logo-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.title-section {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.title-section h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #b85cff;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+.auth-buttons {
+  background-color: #fff0f6;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-btn {
+  width: 200px;
+  margin: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 12px;
+  background-color: #ffb6e7;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  background-color: #ff8e91;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.auth-input {
+  width: 90%;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #ffb6e7;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #ff385a;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #b85cff;
+  background-color: #fffafc;
+}
+
+.error-message {
+  color: #b00020;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  text-align: center;
+}
+
+.switch-auth {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #b85cff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  text-decoration: underline;
+}

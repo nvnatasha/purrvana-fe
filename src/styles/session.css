@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+.session-container {
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom right, #ffe6f0, #ffdacc, #f0d9ff);
+  padding: 2rem;
+  min-height: 100vh;
+  color: #4b2e2e;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #b85cff;
+  text-shadow: 1px 1px 2px #ffe6f0;
+}
+
+.cat-display {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .cat-frame {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffe4fb 30%, #ffcde7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(255, 170, 240, 0.5);
+    animation: pulse-ring 4s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-ring {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(255, 170, 240, 0.4);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 35px rgba(255, 170, 240, 0.7);
+      transform: scale(1.05);
+    }
+  }
+  
+  .session-cat-img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: white;
+    padding: 0.5rem;
+  }
+  
+  
+
+
+.cat-display p {
+  font-size: 1rem;
+  color: #775555;
+}
+
+.timer-box {
+  background-color: #fff5fb;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.timer-box h3 {
+  font-size: 2rem;
+  color: #b85cff;
+}
+
+.session-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.session-btn {
+  background-color: #ffb6e7;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.session-btn:hover {
+  background-color: #ff8ecc;
+  transform: translateY(-2px);
+}
+
+.session-btn:focus {
+  outline: 2px solid #c97aff;
+  outline-offset: 3px;
+}

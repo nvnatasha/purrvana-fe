@@ -1,0 +1,113 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #ffc897;
+    min-height: 100vh;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+  
+  .dashboard-title {
+    font-size: 2rem;
+    color: #b85cff;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* exactly 3 columns */
+  gap: 2rem;
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+  
+  .cat-card {
+    background-color: #fff0f6;
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .cat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  }
+  
+  .cat-card.selected {
+    border: 3px solid #b85cff;
+    background-color: #ffe4fb;
+  }
+  
+  .cat-img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .cat-card h3 {
+    margin: 0.25rem 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .cat-card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .dashboard-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .bio-btn {
+    background: none;
+    border: none;
+    color: #b85cff;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .nav-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .nav-btn,
+  .start-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffb6e7;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .nav-btn:hover,
+  .start-btn:hover {
+    background-color: #ff8e91;
+  }
+  
+  .start-btn:disabled {
+    background-color: #ffcde7;
+    cursor: not-allowed;
+  }
+  
