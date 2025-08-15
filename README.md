@@ -1,12 +1,27 @@
-# React + Vite
+# Purrvana Frontend 🧘‍⬛✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Purrvana is a calming cat-themed meditation app designed to help users relax with the gentle guidance of purring cat companions. Built using **React (Vite)** with a clean CSS layout and smooth animations, users can choose a cat, meditate, and track their session history.
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React (Vite)**
+- **Context API** for state management
+- **CSS** for styling
+- **GSAP** for animations
+- **React Router DOM** for routing
 
-## Expanding the ESLint configuration
+## 📸 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- View a list of unique cat companions
+- Select a cat and start a timed meditation session
+- See your most frequently chosen cat
+- Learn about the real-life cats behind the characters!
+
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/your-username/purrvana-fe.git
+cd purrvana-fe
+npm install
+npm run dev
+
