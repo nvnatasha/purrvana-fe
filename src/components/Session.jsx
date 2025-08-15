@@ -66,13 +66,13 @@ const Session = () => {
 
     try {
       const res = await post("/api/v1/sessions", {
-        session: {
+        
           user_id: user.id,
           cat_id: selectedCat.id,
           duration_seconds: 300 - seconds,
           started_at: new Date().toISOString(),
         },
-      });
+      );
 
       if (!res.ok) throw new Error("Failed to log session");
 
