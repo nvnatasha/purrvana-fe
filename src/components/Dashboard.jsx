@@ -65,7 +65,7 @@ const Dashboard = () => {
           The cats behind the names
         </button>
         <div className="nav-actions">
-          <button className="nav-btn">Home</button>
+          <button className="nav-btn" onClick={() => navigate('/home')}>Home</button>
           <button
             className="start-btn"
             onClick={handleStartSession}
