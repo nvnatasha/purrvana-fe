@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
+import { fetchCurrentUser } from "../api"; // ✅ use shared API helper
 
 const CatContext = createContext();
 
@@ -11,29 +12,22 @@ export const CatProvider = ({ children }) => {
 
   // Restore user from token on initial load
   useEffect(() => {
+    const restoreUser = async () => {
+      try {
+        const data = await fetchCurrentUser();
+        const restoredUser = {
+          id: data.data.id,
+          ...data.data.attributes,
+        };
+        setUser(restoredUser);
+        console.log("🔁 Restored user from token:", restoredUser);
+      } catch (err) {
+        console.error("❌ Failed to restore user:", err);
+      }
+    };
+
     const token = localStorage.getItem("token");
-    if (token) {
-      fetch("http://localhost:3000/api/v1/users/me", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error("Not authorized");
-          return res.json();
-        })
-        .then((data) => {
-          const restoredUser = {
-            id: data.data.id,
-            ...data.data.attributes,
-          };
-          setUser(restoredUser);
-          console.log("🔁 Restored user from token:", restoredUser);
-        })
-        .catch((err) => {
-          console.error("❌ Failed to restore user:", err);
-        });
-    }
+    if (token) restoreUser();
   }, []);
 
   return (

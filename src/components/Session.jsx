@@ -1,24 +1,23 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import { useCatContext } from "../context/CatContext"
+import { useCatContext } from "../context/CatContext";
+import { post } from "../api"; // ✅ use helper
 import "../styles/session.css";
 
 const Session = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const selectedCat = location.state?.cat;
-  const { user } = useCatContext()
-
+  const { user } = useCatContext();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [soundOn, setSoundOn] = useState(true);
-  const [seconds, setSeconds] = useState(300); // 5 mins
+  const [seconds, setSeconds] = useState(300);
   const [timerActive, setTimerActive] = useState(false);
 
   const audioRef = useRef(null);
+  const baseURL = import.meta.env.VITE_BACKEND_URL; // ✅ dynamic base url
 
-
-  // 🕒 Timer logic
   useEffect(() => {
     let interval;
     if (timerActive && seconds > 0) {
@@ -38,10 +37,7 @@ const Session = () => {
   const startSession = () => {
     setIsPlaying(true);
     setTimerActive(true);
-    const audioUrl = audioRef.current?.src;
-  
-
-    if (soundOn && audioUrl) {
+    if (soundOn && audioRef.current?.src) {
       audioRef.current.play().catch((err) => {
         console.error("❌ Audio play failed:", err);
       });
@@ -64,42 +60,30 @@ const Session = () => {
       console.error("❌ Missing user or selectedCat!", { user, selectedCat });
       return;
     }
-  
+
     setTimerActive(false);
     audioRef.current.pause();
-  
-    const token = localStorage.getItem("token");
-  
+
     try {
-      const res = await fetch("http://localhost:3000/api/v1/sessions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const res = await post("/api/v1/sessions", {
+        session: {
+          user_id: user.id,
+          cat_id: selectedCat.id,
+          duration_seconds: 300 - seconds,
+          started_at: new Date().toISOString(),
         },
-        body: JSON.stringify({
-          session: {
-            user_id: user.id,
-            cat_id: selectedCat.id,
-            duration_seconds: 300 - seconds,
-            started_at: new Date().toISOString(),
-          },
-        }),
       });
-  
+
       if (!res.ok) throw new Error("Failed to log session");
-  
+
       const data = await res.json();
       console.log("🎉 Session saved!", data);
     } catch (err) {
       console.error("❌ Could not save session:", err);
     }
-  
+
     navigate("/home");
   };
-  
-  
-  
 
   const formatTime = () => {
     const m = String(Math.floor(seconds / 60)).padStart(2, "0");
@@ -116,7 +100,7 @@ const Session = () => {
       <div className="cat-display">
         <div className="cat-frame">
           <img
-            src={`http://localhost:3000${selectedCat.img_url}`}
+            src={`${baseURL}${selectedCat.img_url}`} // ✅ dynamic img
             alt={selectedCat.name}
             className="session-cat-img"
           />
@@ -150,7 +134,7 @@ const Session = () => {
         ref={audioRef}
         loop
         preload="auto"
-        src={`http://localhost:3000${selectedCat.purr_sound_url}`}
+        src={`${baseURL}${selectedCat.purr_sound_url}`} // ✅ dynamic audio
         onError={(e) => console.error("❌ Audio failed to load:", e.target.src)}
       />
     </div>
@@ -158,3 +142,4 @@ const Session = () => {
 };
 
 export default Session;
+

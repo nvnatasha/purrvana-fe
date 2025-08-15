@@ -1,46 +1,42 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { fetchCats } from "../api"; // ✅ import helper
 import "../styles/dashboard.css";
- 
+
 const Dashboard = () => {
   const [cats, setCats] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchCats = async () => {
+    const loadCats = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/v1/cats", {
-          headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
-
-        if (!res.ok) throw new Error("Failed to fetch cats");
-
-        const data = await res.json();
-        setCats(data.data.map(cat => ({
-          id: cat.id,
-          ...cat.attributes
-        })));
+        const data = await fetchCats(); // this already returns parsed JSON
+  
+        setCats(
+          data.data.map((cat) => ({
+            id: cat.id,
+            ...cat.attributes,
+          }))
+        );
       } catch (err) {
         console.error("Error loading cats:", err);
       }
     };
-
-    fetchCats();
+  
+    loadCats();
   }, []);
 
   const handleSelect = (cat) => {
-    setSelectedCat(cat); // whole object, not just name
+    setSelectedCat(cat);
   };
-  
 
   const handleStartSession = () => {
     if (!selectedCat) return;
     navigate("/session", { state: { cat: selectedCat } });
   };
 
+  const baseURL = import.meta.env.VITE_BACKEND_URL;
 
   return (
     <div className="dashboard-container">
@@ -54,7 +50,7 @@ const Dashboard = () => {
             onClick={() => handleSelect(cat)}
           >
             <img
-              src={`http://localhost:3000${cat.img_url}`}
+              src={`${baseURL}${cat.img_url}`} // ✅ dynamic baseURL
               alt={cat.name}
               className="cat-img"
             />
@@ -66,7 +62,7 @@ const Dashboard = () => {
 
       <div className="dashboard-footer">
         <button className="bio-btn" onClick={() => navigate("/meet-the-cats")}>
-         The cats behind the names
+          The cats behind the names
         </button>
         <div className="nav-actions">
           <button className="nav-btn">Home</button>

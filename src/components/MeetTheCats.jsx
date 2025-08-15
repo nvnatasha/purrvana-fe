@@ -8,6 +8,8 @@ import MrKato from "../assets/MrKato.png";
 import Stormy from "../assets/Stormy.png";
 import Toulouse from "../assets/Toulouse.png";
 
+
+
 const MeetTheCats = () => {
   const navigate = useNavigate();
 

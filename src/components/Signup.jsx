@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCatContext } from "../context/CatContext";
+import { post } from "../api"; // ← import helper
 import "../styles/login.css";
 
 const Signup = () => {
@@ -16,20 +17,13 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/api/v1/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await post("/api/v1/users", {
+        user: {
+          name,
+          email,
+          password,
         },
-        body: JSON.stringify({
-          user: {
-            name,
-            email,
-            password,
-          },
-        }),
       });
-
 
       if (!res.ok) {
         const data = await res.json();
