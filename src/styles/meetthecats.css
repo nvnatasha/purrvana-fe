@@ -1,6 +1,14 @@
-.meet-cats-container {
+/* Base styling */
+body {
+    background-color: #1e1e2f; /* deep indigo */
+    color: #f5f5f5; /* light text */
+  }
+  
+  .meet-cats-container {
     padding: 2rem;
     text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   
   .cat-bio {
@@ -12,10 +20,11 @@
     height: auto;
     border-radius: 10px;
     object-fit: cover;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     margin-bottom: 1rem;
   }
   
+  /* Button */
   .back-btn {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -24,9 +33,22 @@
     color: white;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   .back-btn:hover {
     background-color: #5b55a3;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 600px) {
+    .cat-photo {
+      width: 80%;
+    }
+  
+    .back-btn {
+      width: 90%;
+      font-size: 1.1rem;
+    }
   }
   
